@@ -43,13 +43,21 @@ export const GameBoard = ({ gameSettings, choice, reset }) => {
 		choice(move)
 	}
 	
+	const resetAll = () => {
+		setSelected(null);
+		reset();
+	}
+	
 	return(
 		<div className="flex flex-wrap w-3/4 justify-center text-center">
 			<p>Game mode : <span className="font-bold">{mode === Difficulty.EASY ? "Easy" : "Hard" }</span>  </p>
 			<p className="w-full"><span className="font-bold green-color">{playerName} </span> score : {score}</p>
 			<div className="m-5">
 				{	Object.keys(ObjectType).map( obj => <div key={ObjectType[obj].index} className="m-5">
-					<img className={`selected-img ${selected === ObjectType[obj].move && "selected"}`} onClick={() => calculateGame(ObjectType[obj].move)} src={ObjectType[obj].src} />
+					<img 
+						className={`selected-img ${selected === ObjectType[obj].move && "selected"}`} 
+						onClick={() => calculateGame(ObjectType[obj].move)} src={ObjectType[obj].src} 
+					/>
 				</div>
 				)}
 			</div> 
@@ -80,7 +88,7 @@ export const GameBoard = ({ gameSettings, choice, reset }) => {
 				: playerTwoChoice
 				? <Spinner />
 				: <img src={loadingImg}  alt="loading" />}
-				<ResetButton reset={reset} />
+				<ResetButton reset={resetAll} />
 			</div>
 		</div>
 	);

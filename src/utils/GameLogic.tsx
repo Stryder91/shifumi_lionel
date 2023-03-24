@@ -1,4 +1,4 @@
-import { GameMove } from "../dto/enum";
+import { GameMove, Winner } from "../dto/enum";
 import { IGameResult } from "../dto/interfaces";
 import { ObjectType } from "../dto/constants";
 
@@ -6,9 +6,14 @@ import { ObjectType } from "../dto/constants";
 export function GameLogic(moveOne: GameMove) : IGameResult {
 
 
+	
+	
 	// if no players, computer select a random move
 	const moves = Object.keys(ObjectType);
 	const moveComputer: GameMove = ObjectType[moves[Math.floor(Math.random() * moves.length)]]['move'];
+
+	console.log("moveOne", moveOne);
+	console.log("moveComputer", moveComputer);
 	
 	// the very logic of the shifumi game
 	if (
@@ -18,7 +23,7 @@ export function GameLogic(moveOne: GameMove) : IGameResult {
 	) {
 		// player one wins
 		return {
-			winner: 1,
+			winner: Winner.PLAYER,
 			computerChoice: moveComputer
 		}
 	} 
@@ -26,14 +31,14 @@ export function GameLogic(moveOne: GameMove) : IGameResult {
 	// draw (égalité)
 	if (moveOne === moveComputer) {
 		return {
-			winner: 0,
+			winner: Winner.DRAW,
 			computerChoice: moveComputer
 		}
 	} 
 
 	// computer wins
 	return {
-		winner: 2,
+		winner: Winner.COMPUTER,
 		computerChoice: moveComputer
 	}
 }
