@@ -1,10 +1,11 @@
 import { GameMove } from "./enum";
 
+// each move is also in value in order to enforce type
 export const ObjectType = {
 	'STONE': {
 		index: 0,
 		src: `./stone.png`,
-		move: "STONE" as GameMove
+		move: "STONE" as GameMove 
 	},
 	'PAPER': {
 		index: 1,

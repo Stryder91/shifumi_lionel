@@ -9,7 +9,6 @@ import { PlayerMenu } from './PlayerMenu';
 export const GameMenu = () => {
 	const [gameSettings, setGameSetting] = useState({
 		step: GameStep.PLAYER_NUMBER,
-		playerName: "Lionel",
 		score: 0
 	} as IGameMenu);
 

@@ -6,7 +6,11 @@ import { GameMove } from "../dto/enum";
 export const GameBoard = ({ gameSettings, choice }) => {
 
 	const loadingImg = `./loading.png`;
+
+	// selected is just for green border css when select a move
 	const [selected, setSelected] = useState(null);
+
+	// mounting is just to handle the "loading" spinner
 	const [mounted, setMounted] = useState(false);
 
 	const { 
@@ -35,8 +39,6 @@ export const GameBoard = ({ gameSettings, choice }) => {
 		reloadMounted();
 		choice(move)
 	}
-
-	
 	
 	return(
 		<div className="flex flex-wrap w-3/4 justify-center text-center">

@@ -5,9 +5,4 @@ export enum GameStep {
 	GAME_FINISH
 }
 
-export type GameMove = "PAPER" | "CISOR" | "STONE"
-// export enum GameMove {
-// 	PAPER,
-// 	CISOR, 
-// 	STONE
-// }
+export type GameMove = "PAPER" | "CISOR" | "STONE";
