@@ -1,7 +1,7 @@
-import { GameMove, GameStep } from "./enum";
+import { Difficulty, GameMove, GameStep } from "./enum";
 
 export interface IGameMenu {
-	mode?: number;
+	mode?: Difficulty;
 	playerName?: string;
 	playerOneChoice?: GameMove;
 	playerTwoChoice?: GameMove;

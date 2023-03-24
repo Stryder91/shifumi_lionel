@@ -15,26 +15,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 img {
   width: 200px;
   height: 150px;
   border-radius: 10px;
 }
-
 .img-container {
   width: 200px;
   height: 150px;
 }
-
 .green-color {
   color: rgb(16, 191, 16);
 }
-
 .blue-color {
   color: cyan;
 }
-
 .red-color {
   color: red;
 }

@@ -18,3 +18,5 @@ export const ObjectType = {
 		move: "CISOR" as GameMove
 	},
 }
+
+export const TIMEOUT = 700;

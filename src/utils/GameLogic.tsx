@@ -1,6 +1,6 @@
 import { GameMove } from "../dto/enum";
 import { IGameResult } from "../dto/interfaces";
-import { ObjectType } from "../dto/objects";
+import { ObjectType } from "../dto/constants";
 
 // return the index of the winning player
 export function GameLogic(moveOne: GameMove) : IGameResult {

@@ -6,3 +6,14 @@ export enum GameStep {
 }
 
 export type GameMove = "PAPER" | "CISOR" | "STONE";
+
+export enum Difficulty {
+	EASY, 
+	HARD
+}
+
+export enum Winner {
+	PLAYER,
+	COMPUTER,
+	DRAW // equality
+}

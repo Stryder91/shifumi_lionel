@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { GameMove, GameStep } from "../dto/enum";
+import { Difficulty, GameMove, GameStep, Winner } from "../dto/enum";
 import { IGameMenu, IGameResult } from "../dto/interfaces";
 import { GameLogic } from "../utils/GameLogic";
 import { GameBoard } from "./GameBoard";
@@ -13,9 +13,11 @@ export const GameMenu = () => {
 	} as IGameMenu);
 
 	useEffect(() => {
+
+		// check if player already has score in memory local storage
 		const player = localStorage.getItem(`player-${gameSettings.playerName}`);
-		console.log("gameSettings", gameSettings, player);
 		
+		// if it's the case, we retrieve his score
 		if (player === gameSettings.playerName) {
 			const score = localStorage.getItem(`score-${gameSettings.playerName}`);
 			setGameSetting({
@@ -23,9 +25,9 @@ export const GameMenu = () => {
 				score: parseInt(score),
 			});
 		}
-	}, [gameSettings.playerName]);
+	}, [gameSettings.playerName]); // only call useEffect if playerName changed
 
-	const handleStep = (mode: number) => {
+	const handleStep = (mode: Difficulty) => {
 		if (gameSettings.step === GameStep.PLAYER_NUMBER){
 			setGameSetting({
 				...gameSettings,
@@ -47,12 +49,12 @@ export const GameMenu = () => {
 
 	const handleMove = (moveOne: GameMove) => {
 		const result : IGameResult = GameLogic(moveOne);	
-		let score = result.winner === 1 
+		let score = result.winner === Winner.PLAYER 
 			? gameSettings.score + 1 
 			: gameSettings.score;
 
 		// Hard mode
-		if (gameSettings.mode === 2 && result.winner === 2) {
+		if (gameSettings.mode === Difficulty.HARD && result.winner === Winner.COMPUTER) {
 			score = 0;
 		}
 
