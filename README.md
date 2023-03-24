@@ -1,4 +1,4 @@
-# Shifumy by Lionel Tran
+# Shi Fu Mi by Lionel Tran
 
 - tailwindcss for design system
 - Typescript to have clear functions and variables
