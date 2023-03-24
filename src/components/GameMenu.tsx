@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { GameMove, GameStep } from "../dto/enum";
 import { IGameMenu, IGameResult } from "../dto/interfaces";
 import { GameLogic } from "../utils/GameLogic";
@@ -6,12 +6,24 @@ import { GameBoard } from "./GameBoard";
 import { ModeMenu } from "./GameMode";
 import { PlayerMenu } from './PlayerMenu';
 
-export const 
-GameMenu = () => {
+export const GameMenu = () => {
 	const [gameSettings, setGameSetting] = useState({
 		step: GameStep.PLAYER_NUMBER,
 		score: 0
 	} as IGameMenu);
+
+	useEffect(() => {
+		const player = localStorage.getItem(`player-${gameSettings.playerName}`);
+		console.log("gameSettings", gameSettings, player);
+		
+		if (player === gameSettings.playerName) {
+			const score = localStorage.getItem(`score-${gameSettings.playerName}`);
+			setGameSetting({
+				...gameSettings,
+				score: parseInt(score),
+			});
+		}
+	}, [gameSettings.playerName]);
 
 	const handleStep = (mode: number) => {
 		if (gameSettings.step === GameStep.PLAYER_NUMBER){
@@ -44,6 +56,8 @@ GameMenu = () => {
 			score = 0;
 		}
 
+		localStorage.setItem(`score-${gameSettings.playerName}`, String(score));
+		localStorage.setItem(`player-${gameSettings.playerName}`, String(gameSettings.playerName));
 		setGameSetting({
 			...gameSettings,
 			playerOneChoice: moveOne,
@@ -55,6 +69,8 @@ GameMenu = () => {
 	}
 
 	const resetGame = () => {
+		localStorage.removeItem(`score-${gameSettings.playerName}`);
+		localStorage.removeItem(`player-${gameSettings.playerName}`);
 		setGameSetting({
 			...gameSettings,
 			playerOneChoice: null,

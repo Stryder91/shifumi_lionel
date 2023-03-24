@@ -43,8 +43,8 @@ export const GameBoard = ({ gameSettings, choice, reset }) => {
 	
 	return(
 		<div className="flex flex-wrap w-3/4 justify-center text-center">
-			<p>Game mode : {mode === 1 ? "Easy" : "Hard" } </p>
-			<p className="w-full">{playerName} score : {score}</p>
+			<p>Game mode : <span className="font-bold">{mode === 1 ? "Easy" : "Hard" }</span>  </p>
+			<p className="w-full"><span className="font-bold green-color">{playerName} </span> score : {score}</p>
 			<div className="m-5">
 				{	Object.keys(ObjectType).map( obj => <div key={ObjectType[obj].index} className="m-5">
 					<img className={`selected-img ${selected === ObjectType[obj].move && "selected"}`} onClick={() => calculateGame(ObjectType[obj].move)} src={ObjectType[obj].src} />
