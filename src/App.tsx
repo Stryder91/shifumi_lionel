@@ -8,14 +8,18 @@ import { useTranslation } from "react-i18next";
 import './utils/I18n';
 import './App.css';
 import { GameMenu } from "./components/GameMenu";
+import { SwitchLocale } from './components/SwitchLocale';
+// import { useContext } from 'react';
+// import { Context } from './utils/Context';
 
 const App = () => {
   const { t } = useTranslation();
   // const {state, dispatch} = useContext(Context);
-
+  
   return (<div className="App">
       <header className="App-header">
-        <h1 className="text-3xl font-bold">
+        <SwitchLocale />
+        <h1 className="text-3xl font-bold mt-5">
           {t("title")}
         </h1>
         <a
@@ -26,7 +30,6 @@ const App = () => {
         >
           What is Shifumi ?
         </a>
-
         <Routes >        
           <Route path="/" element={<GameMenu />} />
         </Routes>

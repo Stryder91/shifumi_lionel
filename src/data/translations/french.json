@@ -1,3 +1,8 @@
 {
-  "title": "Bienvenue au Shifumi!"
+  "title": "Bienvenue au Shifumi!",
+  "easyMode": "ton score est incrémenté quand tu gagnes",
+  "hardMode": "ton score est reset quand tu perds",
+  "start": "Choisis une carte pour battre ton adversaire",
+  "computer": "Le gagnant est #ordinateur",
+  "draw": "Egalité, pas de vainqueur!"
 }

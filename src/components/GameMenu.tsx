@@ -6,7 +6,8 @@ import { GameBoard } from "./GameBoard";
 import { ModeMenu } from "./GameMode";
 import { PlayerMenu } from './PlayerMenu';
 
-export const GameMenu = () => {
+export const 
+GameMenu = () => {
 	const [gameSettings, setGameSetting] = useState({
 		step: GameStep.PLAYER_NUMBER,
 		score: 0
@@ -53,6 +54,17 @@ export const GameMenu = () => {
 		});
 	}
 
+	const resetGame = () => {
+		setGameSetting({
+			...gameSettings,
+			playerOneChoice: null,
+			playerTwoChoice: null,
+			step: GameStep.GAME_READY,
+			result: null,
+			score: 0
+		});
+	}
+
 	return(
 		<div className="mt-5 w-full flex justify-center">
 			{ gameSettings.step === GameStep.PLAYER_NUMBER
@@ -67,6 +79,7 @@ export const GameMenu = () => {
 				? <GameBoard 
 						gameSettings={gameSettings} 
 						choice={handleMove}
+						reset={resetGame}
 					/>
 				: null
 			}

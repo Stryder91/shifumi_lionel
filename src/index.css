@@ -39,7 +39,7 @@ img {
   color: red;
 }
 .selected-img {
-  opacity: 0.75;
+  opacity: 0.25;
 }
 .selected-img:hover {
   opacity: 1;
@@ -48,6 +48,7 @@ img {
   cursor: pointer;
 }
 .selected {
-  border: 10px rgb(16, 191, 16) solid;
+  border: 5px rgb(16, 191, 16) solid;
   border-radius: 10px;
+  opacity: 1;
 }

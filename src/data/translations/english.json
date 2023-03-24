@@ -1,3 +1,8 @@
 {
-  "title": "Welcome to the Shifumi!"
+  "title": "Welcome to the Shifumi!",
+  "easyMode": "your score is incrementing when winning",
+  "hardMode": "your score is reset when you lose",
+  "start": "Select a piece to beat the opponent",
+  "computer": "The winner is computer",
+  "draw": "The score is equal, no winner!"
 }
